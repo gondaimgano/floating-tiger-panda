@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyMindValleyApp</string>
+    <string name="database_name">mind_database</string>
+    <string name="image_content">TODO</string>
+</resources>

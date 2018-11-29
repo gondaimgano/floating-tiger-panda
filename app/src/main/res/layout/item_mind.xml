@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.graphics.Color"/>
+      <variable
+          name="dataitem"
+          type="com.loader.my.mymindvalleyapp.MindItemData"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemmindlayout">
+
+        <TextView
+            android:id="@+id/txtname"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{dataitem.mindItem.user.name}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/image_content"
+
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtname"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtcreatedat"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:text="@{dataitem.mindItem.createdAt.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtwidth"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtcreatedat"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtcreatedat"
+            app:layout_constraintTop_toBottomOf="@+id/txtcreatedat"
+            android:text="@{dataitem.mindItem.width.toString()}" />
+
+        <TextView
+            android:id="@+id/txtheight"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/txtwidth"
+            app:layout_constraintStart_toStartOf="@+id/txtwidth"
+            app:layout_constraintTop_toBottomOf="@+id/txtwidth"
+            android:text="@{dataitem.mindItem.height.toString()}" />
+
+        <TextView
+            android:id="@+id/txtcolor"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+            android:background="@{Color.parseColor(dataitem.mindItem.color)}"
+            app:layout_constraintEnd_toEndOf="@+id/txtheight"
+            app:layout_constraintStart_toStartOf="@+id/txtheight"
+            app:layout_constraintTop_toBottomOf="@+id/txtheight" />
+
+        <TextView
+            android:id="@+id/txtlikes"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{dataitem.mindItem.likes.toString()}"
+            app:layout_constraintEnd_toEndOf="@+id/txtcolor"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtcolor"
+            app:layout_constraintTop_toBottomOf="@+id/txtcolor" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="175dp" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
