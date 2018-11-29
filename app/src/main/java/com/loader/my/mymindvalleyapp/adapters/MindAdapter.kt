@@ -1,4 +1,4 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.adapters
 
 import android.databinding.BindingAdapter
 import android.view.View

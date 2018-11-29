@@ -8,7 +8,7 @@
         <import type="android.graphics.Color"/>
       <variable
           name="dataitem"
-          type="com.loader.my.mymindvalleyapp.MindItemData"/>
+          type="com.loader.my.mymindvalleyapp.database.MindItemData"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

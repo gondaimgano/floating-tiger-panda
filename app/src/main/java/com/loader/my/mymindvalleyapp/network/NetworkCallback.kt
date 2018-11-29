@@ -1,6 +1,8 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.network
 
 import android.arch.paging.PagedList
+import com.loader.my.mymindvalleyapp.components.NetworkInterface
+import com.loader.my.mymindvalleyapp.database.MindItemData
 
 class NetworkCallback(var network: NetworkInterface): PagedList.BoundaryCallback<MindItemData>() {
 

@@ -1,4 +1,4 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.adapters
 
 import android.arch.paging.PagedListAdapter
 import android.support.v7.util.DiffUtil
@@ -6,12 +6,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 
 import android.view.ViewGroup
+import com.loader.my.mymindvalleyapp.database.MindItemData
 
 import com.loader.my.mymindvalleyapp.databinding.ItemMindBinding
 import gondai.myloaderlib.MyLoader
 
 
-class MyMindAdapterList(var onClick:(i:MindItemData)->Unit): PagedListAdapter<MindItemData, MyMindAdapterList.ViewHolder>(
+class MyMindAdapterList(var onClick:(i: MindItemData)->Unit): PagedListAdapter<MindItemData, MyMindAdapterList.ViewHolder>(
         object : DiffUtil.ItemCallback<MindItemData>(){
             override fun areItemsTheSame(oldItem: MindItemData, newItem: MindItemData): Boolean
                     = oldItem.id==newItem.id
@@ -22,7 +23,7 @@ class MyMindAdapterList(var onClick:(i:MindItemData)->Unit): PagedListAdapter<Mi
 
         }
 ) {
-    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): MyMindAdapterList.ViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemBinding = ItemMindBinding.inflate(layoutInflater, parent, false)
         return ViewHolder(itemBinding)
@@ -31,7 +32,7 @@ class MyMindAdapterList(var onClick:(i:MindItemData)->Unit): PagedListAdapter<Mi
 
 
 
-    override fun onBindViewHolder(vh: MyMindAdapterList.ViewHolder, position: Int) {
+    override fun onBindViewHolder(vh: ViewHolder, position: Int) {
         getItem(position)?.let{
             vh.bindTo(it)
         }

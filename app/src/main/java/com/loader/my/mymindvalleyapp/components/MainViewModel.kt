@@ -1,4 +1,4 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.components
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
@@ -6,7 +6,12 @@ import android.arch.lifecycle.LiveData
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.Volley
+import com.loader.my.mymindvalleyapp.*
+import com.loader.my.mymindvalleyapp.database.MindItem
+import com.loader.my.mymindvalleyapp.database.MindItemData
+import com.loader.my.mymindvalleyapp.database.ProfileImage
+import com.loader.my.mymindvalleyapp.database.User
+import com.loader.my.mymindvalleyapp.network.NetworkCallback
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -14,11 +19,11 @@ interface NetworkInterface{
     fun request()
 }
 
-class MainViewModel(app:Application):AndroidViewModel(app),NetworkInterface,CoroutineScope {
+class MainViewModel(app:Application):AndroidViewModel(app), NetworkInterface,CoroutineScope {
 
 var itemlist: LiveData<PagedList<MindItemData>>
-var callback:NetworkCallback
-    var app_:App
+var callback: NetworkCallback
+    var app_: App
 
   var job=Job()
     override val coroutineContext: CoroutineContext
@@ -66,11 +71,11 @@ var callback:NetworkCallback
                    likedByUser=this.getBoolean("liked_by_user")
                    val obj=this.getJSONObject("user")
                       val prof=obj.getJSONObject("profile_image")
-                       user=User().apply {
+                       user= User().apply {
                            name=obj.getString("name")
                            username=obj.getString("username")
                            id=obj.getString("id")
-                           profileImage=ProfileImage().apply {
+                           profileImage= ProfileImage().apply {
                                small=prof.getString("small")
                                medium=prof.getString("medium")
                                large=prof.getString("large")

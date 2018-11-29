@@ -6,7 +6,7 @@
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".components.DetailActivity">
 
     <ImageView
         android:id="@+id/mainView"

@@ -1,8 +1,10 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.components
 
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.loader.my.mymindvalleyapp.App
+import com.loader.my.mymindvalleyapp.R
 import com.loader.my.mymindvalleyapp.databinding.ActivityDetailBinding
 import gondai.myloaderlib.MyLoader
 
@@ -10,7 +12,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       val activityDetailBinding= DataBindingUtil.setContentView<ActivityDetailBinding>(this,R.layout.activity_detail)
+       val activityDetailBinding= DataBindingUtil.setContentView<ActivityDetailBinding>(this, R.layout.activity_detail)
 
         val a =applicationContext as App
 

@@ -1,4 +1,4 @@
-package com.loader.my.mymindvalleyapp
+package com.loader.my.mymindvalleyapp.database
 
 import android.arch.persistence.room.*
 
@@ -6,7 +6,7 @@ import android.arch.persistence.room.*
 @Entity(indices = arrayOf(Index(value = ["itemid"],unique = true)))
 class MindItemData{
     @PrimaryKey(autoGenerate = true) var id:Int=0
-    @Embedded(prefix = "item") var mindItem:MindItem= MindItem()
+    @Embedded(prefix = "item") var mindItem: MindItem = MindItem()
 }
 
 class MindItem {
@@ -26,15 +26,15 @@ class MindItem {
 
      var likedByUser: Boolean? = null
 
-        @Embedded(prefix = "user") var user: User= User()
+        @Embedded(prefix = "user") var user: User = User()
 
        @Ignore var currentUserCollections: List<Any>? = null
 
-     @Ignore var urls: Urls=Urls()
+     @Ignore var urls: Urls = Urls()
 
        @Ignore var categories: List<Category>? = null
 
-        @Ignore var links: Links__= Links__()
+        @Ignore var links: Links__ = Links__()
 
     /**
      * No args constructor for use in serialization
@@ -84,7 +84,7 @@ class Category {
 
       var photoCount: Int? = null
 
-    var links: Links_= Links_()
+    var links: Links_ = Links_()
 
     /**
      * No args constructor for use in serialization
@@ -273,9 +273,9 @@ class User {
 
    var name: String=""
 
-      @Embedded var profileImage: ProfileImage= ProfileImage()
+      @Embedded var profileImage: ProfileImage = ProfileImage()
 
-      @Ignore var links: Links= Links()
+      @Ignore var links: Links = Links()
 
     /**
      * No args constructor for use in serialization
